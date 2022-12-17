@@ -1,0 +1,504 @@
+@font-face {
+     font-family: Ubuntu;
+     src: url("../fonts/Ubuntu-Bold.ttf");
+}
+
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+
+:root {
+     /* *********** Primary Colors ********* */
+
+     --marine-blue: hsl(213, 96%, 18%);
+     --purplish-blue: hsl(243, 100%, 62%);
+     --pastel-blue: hsl(228, 100%, 84%);
+     --light-blue: hsl(206, 94%, 87%);
+     --strawberry-red: hsl(354, 84%, 57%);
+
+     /* *********** Neutral Colors ********* */
+
+     --cool-gray: hsl(231, 11%, 63%);
+     --light-gray: hsl(229, 24%, 87%);
+     --magnolia: hsl(217, 100%, 97%);
+     --alabaster: hsl(231, 100%, 99%);
+     --white: hsl(0, 0%, 100%);
+}
+
+body {
+     position: relative;
+     font-family: Ubuntu;
+     height: calc(100vh - 10vh);
+     width: calc(100vw - 10vw);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 2rem;
+     background: var(--light-blue);
+}
+
+.container {
+     position: relative;
+     display: flex;
+     height: 90%;
+     min-width: 60vw;
+     border-radius: 20px;
+     background: var(--alabaster);
+     gap: 8rem;
+}
+
+.side-nav-view {
+     border-radius: 0.95rem;
+     min-height: calc(100vh - 75vh);
+     min-width: 18vw;
+     background-image: url(../assets/images/bg-sidebar-desktop.svg);
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     padding: 3rem;
+}
+
+.nav-menu {
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+}
+
+.step-label {
+     display: flex;
+     align-items: center;
+     height: 70px;
+     gap: 2em;
+}
+
+.step-label .label {
+     height: 50px;
+     width: 50px;
+     line-height: 50px;
+     text-align: center;
+     border-radius: 50%;
+     color: var(--white);
+     background: var(--light-blue);
+     border: 2px solid var(--white);
+     font-weight: 700;
+     background: transparent;
+     transition: all 0.4s ease;
+}
+
+.step-label .label.active {
+     background: var(--light-blue);
+     color: var(--marine-blue);
+     border: none;
+     font-weight: 900;
+}
+
+.sub-label {
+     display: flex;
+     flex-direction: column;
+     text-align: justify;
+}
+
+.sub-label span.l-title {
+     font-size: 0.24em;
+     font-weight: 500;
+     color: var(--pastel-blue);
+}
+
+.sub-label span.l-info {
+     font-size: 1.2em;
+     font-weight: 700;
+     color: var(--white);
+}
+
+.form-container {
+     padding: 2rem 2.7rem 0 0;
+}
+
+.form-description {
+     margin: 3.5rem 0;
+     width: 100%;
+}
+
+.form-container .form-description h2.form-title {
+     font-size: 2em;
+     font-weight: 800;
+     color: var(--marine-blue);
+}
+
+.form-container .form-description p.form-text {
+     font-size: 1.1em;
+     margin-top: 5px;
+     color: var(--cool-gray);
+}
+
+form#form {
+     padding-top: 2rem;
+     color: var(--marine-blue);
+     position: relative;
+}
+
+label {
+     display: block;
+     margin-bottom: 0.5rem;
+     font-size: 1em;
+     font-weight: 600;
+}
+
+.form-group {
+     height: 100%;
+     width: 470px;
+     margin-bottom: 2.2rem;
+}
+
+.form-group input {
+     padding: 0.95rem;
+     width: 100%;
+     border-radius: 0.25rem;
+     border: 2px solid var(--cool-gray);
+     outline: none;
+     font-size: 1em;
+     font-weight: 500;
+     color: var(--cool-gray);
+     transition: all 400ms;
+}
+
+.form-group input:focus {
+     border: 2px solid var(--marine-blue);
+}
+
+::placeholder {
+     font-size: 1em;
+     font-weight: 500;
+     color: var(--cool-gray);
+}
+
+.form-label {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+.form-label .error-txt {
+     color: var(--strawberry-red);
+     font-weight: 500;
+}
+
+.form-group:nth-child(4) input {
+     border: 2px solid var(--strawberry-red);
+}
+
+.form-button {
+     position: absolute;
+     right: 0.2rem;
+     margin-top: 10px;
+     width: 120px;
+}
+
+.form-button button.btn {
+     width: 100%;
+     padding: 0.8rem;
+     font-size: 1em;
+     font-weight: 600;
+     background: var(--marine-blue);
+     border: none;
+     color: var(--white);
+     border-radius: 0.25rem;
+}
+
+@media screen and (max-width:1440px) {
+     .container {
+          min-width: 65vw;
+          min-height: 60vh;
+          gap: 3rem;
+     }
+
+     .form-container {
+          padding-right: 2rem;
+     }
+
+     .side-nav-view {
+          min-height: 50vh;
+          min-width: 21vw;
+     }
+
+     .form-group {
+          height: 100%;
+          width: 450px;
+          margin-bottom: 2.2rem;
+     }
+
+     .form-description {
+          margin-top: 1rem;
+     }
+
+     .form-group input {
+          padding: 1.2rem;
+          width: 100%;
+          border-radius: 0.25rem;
+          border: 1px solid var(--cool-gray);
+     }
+
+     .form-group input:focus {
+          border: 1px solid var(--cool-gray);
+     }
+
+     .form-container .form-description h2.form-title {
+          font-size: 2em;
+          font-weight: 800;
+          color: var(--marine-blue);
+     }
+
+     .form-container .form-description p.form-text {
+          font-size: 0.85em;
+          margin-top: 5px;
+          color: var(--cool-gray);
+     }
+
+     .form-group:nth-child(4) input {
+          border: 1px solid var(--cool-gray);
+     }
+
+     .form-label .error-txt {
+          display: none;
+     }
+
+
+}
+
+@media screen and (max-width:768px) {
+     .container {
+          min-width: 65vw;
+          min-height: 75vh;
+          gap: 2.5rem;
+     }
+
+     .side-nav-view {
+          min-width: 270px;
+     }
+
+     .step-label {
+          height: 70px;
+          gap: 1rem;
+     }
+
+     .step-label .sub-label .l-info {
+          font-size: 1em;
+     }
+
+     form#form {
+          padding-top: 0.7rem;
+     }
+
+     .form-group {
+          height: 100%;
+          width: 350px;
+          margin-bottom: 2.2rem;
+     }
+
+     .form-description {
+          margin-top: 0.5rem;
+     }
+
+     .form-group:nth-child(4) input,
+     .form-group input {
+          padding: 0.95rem;
+          width: 100%;
+          border-radius: 0.25rem;
+          border: 0.18rem solid var(--cool-gray);
+     }
+
+
+     .form-button {
+          right: 15px;
+          transform: translateY(-10px);
+     }
+}
+
+@media screen and (max-width:468px) {
+
+     body {
+          background: var(--white);
+     }
+
+     .container {
+          position: relative;
+          min-width: 80vw;
+          min-height: calc(100vh - 10%);
+          border-radius: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          background: var(--light-blue);
+     }
+
+     .side-nav-view {
+          border-radius: 0;
+          min-height: 25vh;
+          min-width: 30vw;
+          background-image: url(../assets/images/bg-sidebar-mobile.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+     }
+
+     .nav-menu {
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1.5rem;
+     }
+
+     .step-label {
+          height: 120px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+     }
+
+     .step-label .label {
+          height: 40px;
+          width: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: var(--white);
+          font-weight: 500;
+          border: 0.2rem solid var(--white);
+          border-radius: 50%;
+     }
+
+     .step-label .label.active {
+          background: var(--light-blue);
+          color: var(--marine-blue);
+          border: none;
+          font-weight: 600;
+     }
+
+     .step-label .sub-label {
+          width: fit-content;
+          display: none;
+     }
+
+
+     .form-container {
+          min-height: 60vh;
+          position: absolute;
+          margin: 1.5rem;
+          bottom: 40%;
+          border-radius: 0.8rem;
+          left: 0;
+          right: 0;
+          transform: translateY(50%);
+          padding: 2.9rem 1.6rem 1.5rem 1.9rem;
+          background: var(--white);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+     }
+
+     .form-description {
+          margin-bottom: 1.54rem;
+     }
+
+     .form-container .form-description h2.form-title {
+          font-size: 2.5em;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+          color: var(--marine-blue);
+     }
+
+     .form-container .form-description p.form-text {
+          font-size: 1.4em;
+          font-weight: 400;
+          color: var(--cool-gray);
+     }
+
+     .form-group .form-label .error-txt {
+          display: none;
+     }
+
+     .form-group {
+          width: 300px;
+     }
+
+     .form-group input,
+     .form-group:nth-child(4)>input {
+          width: 100%;
+          padding: 1rem;
+          border-radius: 0.25rem;
+          border: 2px solid var(--cool-gray);
+          outline: none;
+     }
+
+     label {
+          display: block;
+          margin-bottom: 0.34rem;
+          color: var(--marine-blue);
+          font-size: 1.2em;
+          font-weight: 500;
+     }
+
+     .form-button {
+          position: absolute;
+          right: 20px;
+          top: 125%;
+          width: 100px;
+          transform: translateY(-120%);
+     }
+
+     .form-button button.btn {
+          width: 100%;
+          padding: 0.9rem;
+          background: var(--marine-blue);
+          border-radius: 0.25rem;
+          border: none;
+          color: var(--light-gray);
+          font-weight: 600;
+     }
+}
+
+
+@media screen and (max-width:375px) {
+     .side-nav-view {
+          border-radius: 0;
+          min-height: 25vh;
+          min-width: 30vw;
+          background-image: url(../assets/images/bg-sidebar-mobile.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+     }
+
+     .form-container {
+          min-height: 55vh;
+          margin: 0.65rem;
+          padding-bottom: 0.45rem;
+     }
+
+     .form-group {
+          width: 240px;
+     }
+
+     .form-group input {
+          width: 100%;
+          padding: 1rem;
+          border-radius: 0.25rem;
+          border: 2px solid var(--cool-gray);
+          outline: none;
+     }
+
+     .form-button {
+          position: absolute;
+          right: 10px;
+          top: 125%;
+          transform: translateY(-130%);
+     }
+
+     .form-container .form-description p.form-text {
+          font-size: 1em;
+     }
+}
